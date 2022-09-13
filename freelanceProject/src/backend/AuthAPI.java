@@ -81,6 +81,38 @@ public class AuthAPI {
     }
 
 
+    public void createDefaultUser () throws IOException{
+
+        RequestBody formBody = new FormBody.Builder()
+                .add("username", "usernameAPA")
+                .add("password", "passwordAPA")
+                .add("confirmPassword", "passwordAPA")
+                .build();
+
+        Request request = new Request.Builder()
+                .url("https://freelance.lsrv.in.ua/api/auth/signup")
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Accept", "*/*")
+                .post(formBody)
+                .build();
+
+        OkHttpClient client = new OkHttpClient();
+        //отправляет запрос
+        Response response = client.newCall(request).execute();
+
+        System.out.println(response.code());
+        //System.out.println(response.body().string());
+
+        System.out.println("set response body");
+
+        String responseBody = response.body().string();
+        //JSONObject responseJson = new JSONObject(responseBody); //передаем строку в объект
+        JSONObject responseJson = new JSONObject(responseBody);
+        System.out.println("response get username");
+
+        //return responseJson.get("username").toString();
+
+    }
 
 
 }

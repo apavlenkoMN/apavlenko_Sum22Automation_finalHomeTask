@@ -1,11 +1,21 @@
 package pages;
 
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class MainPage extends BasePage{
 
+    @FindBy(xpath = "//a[contains(@href,'login')]")
+    private WebElement loginLink;
+
+
+    @FindBy(xpath = "//a[contains(@href,'register')]")
+    private WebElement createAccountLink;
+
+    @FindBy(xpath = "//div[contains(@class, 'home-page')]/h4")
+    private WebElement titleText;
 
 
     public MainPage(WebDriver driver){
@@ -13,35 +23,19 @@ public class MainPage extends BasePage{
 
     }
 
-    public LoginPage goToAuthPage(){
-        driver.findElement(By.linkText("Form Authentication")).click();
+    public LoginPage openLoginPage(){
+        loginLink.click();
         return new LoginPage(driver);
     }
 
-    public DOMPage goToDOMPage(){
-        driver.findElement(By.linkText("Challenging DOM")).click();
-        return new DOMPage(driver);
+//    public RegisterPage createNewAccount(){
+//        createAccountLink.click();
+//        return new RegisterPage(driver);
+//    }
+
+    public String checkTitle(){
+        return  titleText.getText();
     }
-
-    public HoversPage goToHoversPage(){
-        driver.findElement(By.linkText("Hovers")).click();
-        return new HoversPage(driver);
-    }
-
-
-    public DownloadFilePage goToDownloadFilePage(){
-        driver.findElement(By.linkText("File Download")).click();
-        return new DownloadFilePage(driver);
-    }
-
-    public UploadFilePage goToUploadFilePage(){
-        driver.findElement(By.linkText("File Upload")).click();
-        return new UploadFilePage(driver);
-    }
-
-
-
-   // https://the-internet.herokuapp.com/
 
 
 }
