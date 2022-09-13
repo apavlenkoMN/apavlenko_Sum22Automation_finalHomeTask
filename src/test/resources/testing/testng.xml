@@ -1,0 +1,33 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1" >
+<!--    <test name="Nopackage" >-->
+<!--        <classes>-->
+<!--            <class name="com.provectus.tests.TestEx" />-->
+<!--        </classes>-->
+<!--    </test>-->
+
+    <test name="Regression1">
+        <parameter name="par1" value="testParameter1"></parameter>
+        <parameter name="par2" value="testParameter2"></parameter>
+        <parameter name="par3" value="testParameter3"></parameter>
+        <parameter name="name" value="tomsmith"></parameter>
+        <parameter name="pass" value="SuperSecretPassword"></parameter>
+
+<!--        <groups>-->
+<!--            <run>-->
+<!--                <include name = "Group1"></include>-->
+<!--                <include name = "Group2"></include>-->
+<!--            </run>-->
+<!--        </groups>-->
+
+        <classes>
+<!--            <class name="com.provectus.tests.TestEx"/>-->
+<!--            <class name="com.provectus.tests.LoginTest"></class>-->
+
+
+<!--            <class name="com.provectus.tests.LoginTrueFalse"></class>-->
+-            <class name="com.provectus.tests.backend.AuthTest"></class>-->
+        </classes>
+    </test>
+</suite>
