@@ -30,7 +30,7 @@ public class AuthTest {
 
         AuthAPI auth = new AuthAPI();
 
-        auth.createDefaultUser();
+        //auth.createDefaultUser();
 //        auth.signUp("apa2", "apa1234567");
         auth.signIn("apa", "apaapaapa");
         //System.out.println(auth.signIn("apa", "apaapaapa"));
